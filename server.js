@@ -9,11 +9,16 @@ const app = express();
 app.use(express.json()); 
 
 // 🔹 Подключение к MongoDB с обработкой ошибок
-mongoose.connect("mongodb://127.0.0.1:27017/bookDB", {
-    serverSelectionTimeoutMS: 5000, // 5 секунд на подключение
-  })
-    .then(() => console.log("✅ Подключено к MongoDB"))
-    .catch(err => console.error("❌ Ошибка подключения к MongoDB:", err));
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("✅ Подключено к MongoDB Atlas"))
+.catch(err => console.error("❌ Ошибка подключения к MongoDB:", err));
+
   
 
 // 🔹 Определяем схему книги
