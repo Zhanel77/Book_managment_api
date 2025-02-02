@@ -9,9 +9,13 @@ const app = express();
 app.use(express.json()); 
 
 // 🔹 Подключение к MongoDB с обработкой ошибок
-require('dotenv').config();
-const mongoose = require('mongoose');
+require('dotenv').config(); // Подключаем .env
 
+const express = require('express'); // Подключаем express
+const mongoose = require('mongoose'); // Подключаем mongoose (ОБРАТИТЕ ВНИМАНИЕ: должно быть ОДИН раз)
+
+
+// Подключение к MongoDB
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -19,7 +23,10 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("✅ Подключено к MongoDB Atlas"))
 .catch(err => console.error("❌ Ошибка подключения к MongoDB:", err));
 
-  
+app.listen(PORT, () => {
+  console.log(`✅ Сервер запущен на порту ${PORT}`);
+});
+
 
 // 🔹 Определяем схему книги
 const bookSchema = new mongoose.Schema({
