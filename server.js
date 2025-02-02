@@ -1,3 +1,4 @@
+// ✅ Подключение зависимостей
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -8,9 +9,10 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const app = express();
 app.use(express.json()); 
 
+// ✅ Объявляем PORT СРАЗУ (до использования)
+const PORT = process.env.PORT || 3000;
 
-
-// Подключение к MongoDB
+// ✅ Подключение к MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -18,12 +20,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("✅ Подключено к MongoDB Atlas"))
 .catch(err => console.error("❌ Ошибка подключения к MongoDB:", err));
 
-app.listen(PORT, () => {
-  console.log(`✅ Сервер запущен на порту ${PORT}`);
-});
-
-
-// 🔹 Определяем схему книги
+// ✅ Определяем схему книги
 const bookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
@@ -33,7 +30,7 @@ const bookSchema = new mongoose.Schema({
 
 const Book = mongoose.model("Book", bookSchema);
 
-// 📌 SWAGGER ДОКУМЕНТАЦИЯ
+// ✅ SWAGGER ДОКУМЕНТАЦИЯ
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -45,19 +42,13 @@ const options = {
   },
   apis: ["./server.js"], 
 };
+
 const specs = swaggerJsdoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-/**
- * @swagger
- * /books:
- *   get:
- *     summary: Получить все книги
- *     description: Возвращает список всех книг из базы данных
- *     responses:
- *       200:
- *         description: Успешный запрос
- */
+// ✅ РОУТЫ API (CRUD)
+
+// 📌 Получить все книги
 app.get("/books", async (req, res) => {
   try {
     const books = await Book.find();
@@ -67,31 +58,7 @@ app.get("/books", async (req, res) => {
   }
 });
 
-/**
- * @swagger
- * /books:
- *   post:
- *     summary: Добавить новую книгу
- *     description: Создает новую запись о книге
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *               author:
- *                 type: string
- *               year:
- *                 type: integer
- *               genre:
- *                 type: string
- *     responses:
- *       201:
- *         description: Книга успешно добавлена
- */
+// 📌 Добавить новую книгу
 app.post("/books", async (req, res) => {
   try {
     const book = new Book(req.body);
@@ -102,38 +69,7 @@ app.post("/books", async (req, res) => {
   }
 });
 
-/**
- * @swagger
- * /books/{id}:
- *   put:
- *     summary: Обновить книгу
- *     description: Изменяет данные книги по ID
- *     parameters:
- *       - name: id
- *         in: path
- *         required: true
- *         description: ID книги
- *         schema:
- *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *               author:
- *                 type: string
- *               year:
- *                 type: integer
- *               genre:
- *                 type: string
- *     responses:
- *       200:
- *         description: Книга обновлена
- */
+// 📌 Обновить книгу по ID
 app.put("/books/:id", async (req, res) => {
   try {
     const book = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -143,23 +79,7 @@ app.put("/books/:id", async (req, res) => {
   }
 });
 
-/**
- * @swagger
- * /books/{id}:
- *   delete:
- *     summary: Удалить книгу
- *     description: Удаляет книгу по ID
- *     parameters:
- *       - name: id
- *         in: path
- *         required: true
- *         description: ID книги
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Книга удалена
- */
+// 📌 Удалить книгу по ID
 app.delete("/books/:id", async (req, res) => {
   try {
     await Book.findByIdAndDelete(req.params.id);
@@ -169,23 +89,7 @@ app.delete("/books/:id", async (req, res) => {
   }
 });
 
-/**
- * @swagger
- * /weather/{city}:
- *   get:
- *     summary: Получить погоду
- *     description: Получает данные о погоде из OpenWeather API
- *     parameters:
- *       - name: city
- *         in: path
- *         required: true
- *         description: Название города
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Погода получена
- */
+// 📌 Получить погоду через OpenWeather API
 app.get("/weather/:city", async (req, res) => {
   const city = req.params.city;
   const API_KEY = process.env.WEATHER_API_KEY;
@@ -204,8 +108,7 @@ app.get("/weather/:city", async (req, res) => {
   }
 });
 
-// 🔥 Запуск сервера
-const PORT = process.env.PORT || 3000;
+// ✅ Запуск сервера
 app.listen(PORT, () => {
   console.log(`✅ Сервер запущен на порту ${PORT}`);
 });
