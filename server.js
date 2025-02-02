@@ -8,11 +8,6 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const app = express();
 app.use(express.json()); 
 
-// 🔹 Подключение к MongoDB с обработкой ошибок
-require('dotenv').config(); // Подключаем .env
-
-const express = require('express'); // Подключаем express
-const mongoose = require('mongoose'); // Подключаем mongoose (ОБРАТИТЕ ВНИМАНИЕ: должно быть ОДИН раз)
 
 
 // Подключение к MongoDB
