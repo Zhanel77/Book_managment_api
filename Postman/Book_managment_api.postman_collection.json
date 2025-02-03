@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "bd73a73f-ace8-44aa-9254-9d8a690ca52c",
+		"name": "Book_managment_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39550253"
+	},
+	"item": [
+		{
+			"name": "https://book-managment-api-4mlr.onrender.com/books\n",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n  \"author\": \"J.K. Rowling\",\r\n  \"year\": 1997,\r\n  \"genre\": \"Fantasy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://book-managment-api-4mlr.onrender.com/books\n",
+					"protocol": "https",
+					"host": [
+						"book-managment-api-4mlr",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"books\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://book-managment-api-4mlr.onrender.com/weather/London\n",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n  \"author\": \"J.K. Rowling\",\r\n  \"year\": 1997,\r\n  \"genre\": \"Fantasy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://book-managment-api-4mlr.onrender.com/weather/London\n",
+					"protocol": "https",
+					"host": [
+						"book-managment-api-4mlr",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"weather",
+						"London\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://book-managment-api-4mlr.onrender.com/books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n  \"author\": \"J.K. Rowling\",\r\n  \"year\": 1997,\r\n  \"genre\": \"Fantasy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://book-managment-api-4mlr.onrender.com/books",
+					"protocol": "https",
+					"host": [
+						"book-managment-api-4mlr",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://book-managment-api-4mlr.onrender.com/books/67a053d85d136f8850f7e8e3",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n  \"author\": \"J.K. Rowling\",\r\n  \"year\": 1997,\r\n  \"genre\": \"Fantasy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://book-managment-api-4mlr.onrender.com/books/67a053d85d136f8850f7e8e3",
+					"protocol": "https",
+					"host": [
+						"book-managment-api-4mlr",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"books",
+						"67a053d85d136f8850f7e8e3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://book-managment-api-4mlr.onrender.com/books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n  \"author\": \"J.K. Rowling\",\r\n  \"year\": 1997,\r\n  \"genre\": \"Fantasy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://book-managment-api-4mlr.onrender.com/books",
+					"protocol": "https",
+					"host": [
+						"book-managment-api-4mlr",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://book-managment-api-4mlr.onrender.com/books/67a0536f5d136f8850f7e8e0",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n  \"author\": \"J.K. Rowling\",\r\n  \"year\": 1997,\r\n  \"genre\": \"Fantasy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://book-managment-api-4mlr.onrender.com/books/67a0536f5d136f8850f7e8e0",
+					"protocol": "https",
+					"host": [
+						"book-managment-api-4mlr",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"books",
+						"67a0536f5d136f8850f7e8e0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://book-managment-api-4mlr.onrender.com/books",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"The Hobbit\",\r\n  \"author\": \"J.R.R. Tolkien\",\r\n  \"year\": 1987,\r\n  \"genre\": \"Fantasy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://book-managment-api-4mlr.onrender.com/books",
+					"protocol": "https",
+					"host": [
+						"book-managment-api-4mlr",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://book-managment-api-4mlr.onrender.com/books",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"The Hobbit\",\r\n  \"author\": \"J.R.R. Tolkien\",\r\n  \"year\": 1937,\r\n  \"genre\": \"Fantasy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://book-managment-api-4mlr.onrender.com/books",
+					"protocol": "https",
+					"host": [
+						"book-managment-api-4mlr",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
