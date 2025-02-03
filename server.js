@@ -38,7 +38,7 @@ const options = {
       description: "API для управления книгами",
     },
   },
-  apis: ["./server.js"], 
+  apis: ["server.js"], 
 };
 
 const specs = swaggerJsdoc(options);
