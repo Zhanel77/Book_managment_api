@@ -1,4 +1,4 @@
-// ✅ Import dependencies
+// Import dependencies
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -9,15 +9,15 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const app = express();
 app.use(express.json()); 
 
-// ✅ Declare PORT at the beginning (before usage)
+// Declare PORT at the beginning (before usage)
 const PORT = process.env.PORT || 3000;
 
-// ✅ Connect to MongoDB Atlas
+// Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("✅ Connected to MongoDB Atlas"))
-.catch(err => console.error("❌ Error connecting to MongoDB:", err));
+.then(() => console.log("Connected to MongoDB Atlas"))
+.catch(err => console.error("Error connecting to MongoDB:", err));
 
-// ✅ Define the Book schema
+// Define the Book schema
 const bookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
@@ -27,7 +27,7 @@ const bookSchema = new mongoose.Schema({
 
 const Book = mongoose.model("Book", bookSchema);
 
-// ✅ SWAGGER DOCUMENTATION
+// SWAGGER DOCUMENTATION
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -43,9 +43,9 @@ const options = {
 const specs = swaggerJsdoc(options);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-// ✅ API ROUTES (CRUD)
+// API ROUTES (CRUD)
 
-// 📌 Get all books
+// Get all books
 app.get("/books", async (req, res) => {
   try {
     const books = await Book.find();
@@ -55,7 +55,7 @@ app.get("/books", async (req, res) => {
   }
 });
 
-// 📌 Add a new book
+// Add a new book
 app.post("/books", async (req, res) => {
   try {
     const book = new Book(req.body);
@@ -66,7 +66,7 @@ app.post("/books", async (req, res) => {
   }
 });
 
-// 📌 Update a book by ID
+// Update a book by ID
 app.put("/books/:id", async (req, res) => {
   try {
     const book = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -76,7 +76,7 @@ app.put("/books/:id", async (req, res) => {
   }
 });
 
-// 📌 Delete a book by ID
+// Delete a book by ID
 app.delete("/books/:id", async (req, res) => {
   try {
     await Book.findByIdAndDelete(req.params.id);
@@ -86,7 +86,7 @@ app.delete("/books/:id", async (req, res) => {
   }
 });
 
-// 📌 Get weather data from OpenWeather API
+// Get weather data from OpenWeather API
 app.get("/weather/:city", async (req, res) => {
   const city = req.params.city;
   const API_KEY = process.env.WEATHER_API_KEY;
@@ -105,7 +105,7 @@ app.get("/weather/:city", async (req, res) => {
   }
 });
 
-// ✅ Start the server
+// Start the server
 app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
